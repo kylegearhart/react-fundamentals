@@ -7,14 +7,16 @@
 <!--   📜 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules -->
 <!--   📜 https://github.com/mdn/js-examples/tree/master/modules -->
 
-<body>
-  <div id="root"></div>
+<body id='body'>
   <script type="module">
-    const root = document.getElementById('root');
+    const root = document.createElement('div');
+    root.setAttribute('id', 'root');
+    document.body.append(root);
+
     const helloWorldDiv = document.createElement('div');
     helloWorldDiv.textContent = 'Hello World';
     helloWorldDiv.className = 'container';
-    root.appendChild(helloWorldDiv);
+    root.append(helloWorldDiv);
   </script>
 </body>
 
