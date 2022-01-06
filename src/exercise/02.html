@@ -7,7 +7,9 @@
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   <script type="module">
     const rootElement = document.getElementById('root')
-    const helloWorldDiv = React.createElement('div', { children: 'Hello World', className: 'container' });
+    const helloSpan = React.createElement('span', { children: 'Hello' });
+    const worldSpan = React.createElement('span', { children: 'World' });
+    const helloWorldDiv = React.createElement('div', { className: 'container' }, helloSpan, ' ', worldSpan);
     ReactDOM.render(helloWorldDiv, rootElement);
   </script>
 </body>
