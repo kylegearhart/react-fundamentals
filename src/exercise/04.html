@@ -6,6 +6,7 @@
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
     function Message({subject, greeting}) {
       return (
@@ -14,20 +15,9 @@
         </div>
       )
     }
-    const CustomPropTypeValidators = {
-      string(props, propName, componentName) {
-        const propValue = props[propName];
-        if (propValue === undefined || typeof propValue !== 'string') {
-          return new Error(`Please provide a string value for ${propName}`)
-        }
-        if (propValue === '') {
-          return new Error(`${propName} cannot be an empty string.`)
-        }
-      }
-    }
     Message.propTypes = {
-      greeting: CustomPropTypeValidators.string,
-      subject: CustomPropTypeValidators.string,
+      greeting: PropTypes.string.isRequired,
+      subject: PropTypes.string.isRequired,
     }
     const element = (
       <div className="container">
