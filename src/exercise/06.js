@@ -4,16 +4,18 @@
 import * as React from 'react'
 
 function UsernameForm({onSubmitUsername}) {
+  const usernameInputRef = React.useRef(null);
+
   const handleSubmit = (formSubmitEvent) => {
     formSubmitEvent.preventDefault();
-    onSubmitUsername(formSubmitEvent.target.elements.usernameInput.value)
+    onSubmitUsername(usernameInputRef.current.value)
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="usernameInput">Username:</label>
-        <input id="usernameInput" type="text" />
+        <input id="usernameInput" type="text" ref={usernameInputRef} />
       </div>
       <button type="submit">Submit</button>
     </form>
